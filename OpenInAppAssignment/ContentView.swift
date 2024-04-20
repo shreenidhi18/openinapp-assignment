@@ -16,6 +16,8 @@ struct ContentView: View {
     @State var chartData: [ChartModel] = []
     var jsonHelper: JSONHelper = JSONHelper()
     
+    @State var selectedTab: Int = 0
+    
     
     var body: some View {
         GeometryReader { proxy in
@@ -44,6 +46,17 @@ struct ContentView: View {
                         .offset(y: -proxy.size.height / 18)
                     
                     
+                    HorizontalScrollPicker()
+                        .offset(y: -proxy.size.height / 18)
+                        .padding(.top)
+                    
+                    ViewAnalytics()
+                        .padding(.top)
+                        .offset(y: -proxy.size.height / 18)
+                        .padding(.horizontal)
+                        
+                    TabButtons(selectedTab: $selectedTab)
+                        .padding(.horizontal)
                     
                     
                 }
@@ -111,19 +124,11 @@ struct ContentView: View {
             ForEach(chartData) { item in
                 
                 LineMark(x: .value("Date", item.creationDate,unit: .month),
-                        y: .value("Total Clicks", item.totalClicks))
+                         y: .value("Total Clicks", item.totalClicks))
                 .interpolationMethod(.catmullRom)
-                
-                
-                
-                
-                
+   
             }
-            
-            
-            
         }
-        
         .frame(height: 200)
         .chartYScale(domain: 0...250)
         .chartYAxis {
