@@ -13,7 +13,16 @@ struct ContentView: View {
     @State var updateTimer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     @State var greeting: String = ""
+    
     @State var chartData: [ChartModel] = []
+    @State var recentLinkstitles: [String] = []
+    @State var topLinkstitles: [String] = []
+    @State var recentLinksUrls: [String] = []
+    @State var topLinksUrls: [String] = []
+    @State var recentLinksArray: [Link] = []
+    @State var topLinksArray: [Link] = []
+    
+    
     var jsonHelper: JSONHelper = JSONHelper()
     
     @State var selectedTab: Int = 0
@@ -58,6 +67,26 @@ struct ContentView: View {
                     TabButtons(selectedTab: $selectedTab)
                         .padding(.horizontal)
                     
+                    TabbedView(selectedTab: $selectedTab,
+                            recentLinkstitles: recentLinkstitles,
+                            topLinkstitles: topLinkstitles,
+                            recentLinksUrls: recentLinksUrls,
+                            topLinksUrls: topLinksUrls,
+                            recentLinksArray: recentLinksArray,
+                            topLinksArray: topLinksArray)
+                    
+                    ViewAllLinks()
+                        .padding(.horizontal)
+                        
+                    
+                    EnquiryView(type: .Talk)
+                        .padding(.horizontal)
+                        .padding(.top)
+                    
+                    EnquiryView(type: .Questions)
+                        .padding(.horizontal)
+                        .padding(.top)
+                    
                     
                 }
                 .ignoresSafeArea(edges: .top)
@@ -73,18 +102,29 @@ struct ContentView: View {
                         let topLinks = try jsonHelper.extractTopLinks(from: data)
                         let recentLinksArr = jsonHelper.decodeLinks(from: recentLinks)
                         let topLinkArr = jsonHelper.decodeLinks(from: topLinks)
-
+                        
                         if let recentLinksArray = recentLinksArr {
                             for link in recentLinksArray {
                                 chartData.append(.init(creationDate: jsonHelper.convertISO8601StringToDate(link.createdAt) ?? Date(), totalClicks: link.totalClicks))
                             }
                         }
                         
-//
-                        
-                        for chartDatum in chartData {
-                            print(chartDatum)
+                        if let recentLinksArr = recentLinksArr, let topLinkArr = topLinkArr{
+                            self.recentLinksArray = recentLinksArr
+                            self.topLinksArray = topLinkArr
                         }
+                        
+                        if let topLinkstitles = jsonHelper.extractTitles(from: topLinks), let recentLinksTitles = jsonHelper.extractTitles(from: recentLinks) {
+                            self.recentLinkstitles = recentLinksTitles
+                            self.topLinkstitles = topLinkstitles
+                        }
+                        
+                        self.recentLinksUrls = jsonHelper.extractWebLinks(from: recentLinks)
+                        self.topLinksUrls = jsonHelper.extractWebLinks(from: topLinks)
+                        
+                       
+                        
+                      
                         
                         
                        

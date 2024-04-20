@@ -33,6 +33,34 @@ struct ViewAnalytics: View {
     }
 }
 
+struct ViewAllLinks: View {
+    var body: some View {
+        Button {
+            
+        }label: {
+            HStack{
+                Spacer()
+                Image("link")
+                    .frame(width: 32,height: 32)
+                
+                Text("View all Links")
+                    .foregroundStyle(.black)
+                    .font(.custom("Figtree-Bold", size: 20))
+                Spacer()
+            }
+            .padding(10)
+            .overlay {
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(lineWidth: 2)
+                    .foregroundStyle(.black.opacity(0.2))
+                    
+            }
+        }
+    }
+}
+
+
+
 #Preview {
     ViewAnalytics()
 }

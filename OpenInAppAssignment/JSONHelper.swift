@@ -160,6 +160,80 @@ class JSONHelper {
         return isoFormatter.date(from: dateString)
     }
     
+    func extractTitles(from jsonString: String) -> [String]? {
+        guard let data = jsonString.data(using: .utf8) else {
+            print("Error: Couldn't encode jsonString to Data")
+            return nil
+        }
+        
+        do {
+            // Decode the JSON data into an array of dictionaries
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                var titles = [String]()
+                // Extract titles
+                for itemDict in jsonArray {
+                    if let title = itemDict["title"] as? String {
+                        titles.append(title)
+                    }
+                }
+                return titles
+            } else {
+                print("Error: Decoding JSON did not return an array of dictionaries")
+                return nil
+            }
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    func convertDateFormat(from dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"  // Set the date format matching the input
+        inputFormatter.timeZone = TimeZone(secondsFromGMT: 0)       // Set timezone to UTC
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "dd MMM yyyy"                 // Set the output date format
+        outputFormatter.timeZone = TimeZone.current                // Set timezone to current
+
+        if let date = inputFormatter.date(from: dateString) {
+            return outputFormatter.string(from: date)
+        } else {
+            print("Invalid date format")
+            return "Invalid date"
+        }
+    }
+    
+    func correctURLFormat(_ urlString: String) -> String {
+        return urlString.replacingOccurrences(of: "\\", with: "/")
+    }
+    
+    func extractWebLinks(from jsonString: String) -> [String] {
+        var webLinks: [String] = []
+
+        // Convert the JSON string to Data
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            print("Error: Could not encode jsonString to Data")
+            return []
+        }
+
+        // Parse the JSON data
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [[String: Any]] {
+                // Iterate through each dictionary
+                for dictionary in jsonArray {
+                    if let webLink = dictionary["web_link"] as? String {
+                        webLinks.append(webLink)
+                    }
+                }
+            }
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+
+        return webLinks
+    }
+    
 
 
     
