@@ -14,6 +14,9 @@
 		A02C96D52BD3F1D100DF1F51 /* TabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96D42BD3F1D100DF1F51 /* TabbedView.swift */; };
 		A02C96D72BD3F33600DF1F51 /* LinkCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96D62BD3F33600DF1F51 /* LinkCardView.swift */; };
 		A02C96D92BD4005600DF1F51 /* EnquiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96D82BD4005600DF1F51 /* EnquiryView.swift */; };
+		A02C96DB2BD404BA00DF1F51 /* CustomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96DA2BD404BA00DF1F51 /* CustomCurve.swift */; };
+		A02C96DD2BD4051000DF1F51 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96DC2BD4051000DF1F51 /* CustomTabBar.swift */; };
+		A02C96DF2BD405B700DF1F51 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02C96DE2BD405B700DF1F51 /* TabItem.swift */; };
 		A032C51A2BD2DAB400E3E231 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032C5192BD2DAB400E3E231 /* JSONHelper.swift */; };
 		A032C51D2BD2E9FE00E3E231 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032C51C2BD2E9FE00E3E231 /* ChartModel.swift */; };
 		A0DBECBD2BB94771006BF40C /* OpenInAppAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBECBC2BB94771006BF40C /* OpenInAppAssignmentApp.swift */; };
@@ -51,6 +54,9 @@
 		A02C96D42BD3F1D100DF1F51 /* TabbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedView.swift; sourceTree = "<group>"; };
 		A02C96D62BD3F33600DF1F51 /* LinkCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCardView.swift; sourceTree = "<group>"; };
 		A02C96D82BD4005600DF1F51 /* EnquiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryView.swift; sourceTree = "<group>"; };
+		A02C96DA2BD404BA00DF1F51 /* CustomCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurve.swift; sourceTree = "<group>"; };
+		A02C96DC2BD4051000DF1F51 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		A02C96DE2BD405B700DF1F51 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		A032C5192BD2DAB400E3E231 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		A032C51C2BD2E9FE00E3E231 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		A0DBECB92BB94771006BF40C /* OpenInAppAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenInAppAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,11 +132,15 @@
 				A0DBECE82BB94939006BF40C /* Info.plist */,
 				A0DBECBC2BB94771006BF40C /* OpenInAppAssignmentApp.swift */,
 				A0175C602BD3C75E00D37EC0 /* HorizontalScrollPickerCard.swift */,
+				A02C96DA2BD404BA00DF1F51 /* CustomCurve.swift */,
 				A0175C622BD3CC1100D37EC0 /* ViewAnalytics.swift */,
 				A0175C642BD3CCE500D37EC0 /* TabButtons.swift */,
 				A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */,
 				A02C96D42BD3F1D100DF1F51 /* TabbedView.swift */,
 				A0DBECED2BB953DB006BF40C /* Main.swift */,
+				A02C96D82BD4005600DF1F51 /* EnquiryView.swift */,
+				A02C96DE2BD405B700DF1F51 /* TabItem.swift */,
+				A02C96DC2BD4051000DF1F51 /* CustomTabBar.swift */,
 				A02C96D62BD3F33600DF1F51 /* LinkCardView.swift */,
 				A0DBECEB2BB94DDA006BF40C /* Header.swift */,
 				A0DBECBE2BB94771006BF40C /* ContentView.swift */,
@@ -138,7 +148,6 @@
 				A0DBECE62BB9492C006BF40C /* Figtree-Light.ttf */,
 				A0DBECC02BB94772006BF40C /* Assets.xcassets */,
 				A0DBECC22BB94772006BF40C /* Preview Content */,
-				A02C96D82BD4005600DF1F51 /* EnquiryView.swift */,
 			);
 			path = OpenInAppAssignment;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 			files = (
 				A02C96D52BD3F1D100DF1F51 /* TabbedView.swift in Sources */,
 				A0175C612BD3C75E00D37EC0 /* HorizontalScrollPickerCard.swift in Sources */,
+				A02C96DB2BD404BA00DF1F51 /* CustomCurve.swift in Sources */,
 				A0DBECBF2BB94771006BF40C /* ContentView.swift in Sources */,
 				A0DBECEC2BB94DDA006BF40C /* Header.swift in Sources */,
 				A0175C632BD3CC1100D37EC0 /* ViewAnalytics.swift in Sources */,
@@ -294,7 +304,9 @@
 				A02C96D72BD3F33600DF1F51 /* LinkCardView.swift in Sources */,
 				A0175C652BD3CCE500D37EC0 /* TabButtons.swift in Sources */,
 				A032C51D2BD2E9FE00E3E231 /* ChartModel.swift in Sources */,
+				A02C96DD2BD4051000DF1F51 /* CustomTabBar.swift in Sources */,
 				A032C51A2BD2DAB400E3E231 /* JSONHelper.swift in Sources */,
+				A02C96DF2BD405B700DF1F51 /* TabItem.swift in Sources */,
 				A02C96D92BD4005600DF1F51 /* EnquiryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

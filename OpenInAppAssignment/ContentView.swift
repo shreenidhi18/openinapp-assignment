@@ -27,70 +27,83 @@ struct ContentView: View {
     
     @State var selectedTab: Int = 0
     
+    @State var tab: Int = 0
+    
     
     var body: some View {
         GeometryReader { proxy in
             
             
-            VStack{
-                ScrollView(.vertical){
-                    
-                    Header(proxy: proxy)
-                    
-                    Main(greeting: $greeting)
-                        .offset(y: -proxy.size.height / 18)
-                    
-                    VStack{
-                        HStack {
-                            Text("Overview")
-                                .foregroundStyle(.gray)
-                                .font(.custom("Figtree-Light", size: 20))
-                            Spacer()
+            ZStack{
+                VStack{
+                    ScrollView(.vertical){
+                        
+                        Header(proxy: proxy)
+                        
+                        Main(greeting: $greeting)
+                            .offset(y: -proxy.size.height / 18)
+                        
+                        VStack{
+                            HStack {
+                                Text("Overview")
+                                    .foregroundStyle(.gray)
+                                    .font(.custom("Figtree-Light", size: 20))
+                                Spacer()
+                            }
+                            AnimatedChart()
                         }
-                        AnimatedChart()
+                            .padding()
+                            .background(.white,in: .rect(cornerRadius: 24))
+                            .padding(.horizontal)
+                            .offset(y: -proxy.size.height / 18)
+                        
+                        
+                        HorizontalScrollPicker()
+                            .offset(y: -proxy.size.height / 18)
+                            .padding(.top)
+                        
+                        ViewAnalytics()
+                            .padding(.top)
+                            .offset(y: -proxy.size.height / 18)
+                            .padding(.horizontal)
+                            
+                        TabButtons(selectedTab: $selectedTab)
+                            .padding(.horizontal)
+                        
+                        TabbedView(selectedTab: $selectedTab,
+                                recentLinkstitles: recentLinkstitles,
+                                topLinkstitles: topLinkstitles,
+                                recentLinksUrls: recentLinksUrls,
+                                topLinksUrls: topLinksUrls,
+                                recentLinksArray: recentLinksArray,
+                                topLinksArray: topLinksArray)
+                        
+                        ViewAllLinks()
+                            .padding(.horizontal)
+                            
+                        
+                        EnquiryView(type: .Talk)
+                            .padding(.horizontal)
+                            .padding(.top)
+                        
+                        EnquiryView(type: .Questions)
+                            .padding(.horizontal)
+                            .padding(.top)
+                        
+                        Rectangle()
+                            .frame(width: 100,height: 100)
+                            .foregroundStyle(.clear)
+                        
+                        
                     }
-                        .padding()
-                        .background(.white,in: .rect(cornerRadius: 24))
-                        .padding(.horizontal)
-                        .offset(y: -proxy.size.height / 18)
-                    
-                    
-                    HorizontalScrollPicker()
-                        .offset(y: -proxy.size.height / 18)
-                        .padding(.top)
-                    
-                    ViewAnalytics()
-                        .padding(.top)
-                        .offset(y: -proxy.size.height / 18)
-                        .padding(.horizontal)
-                        
-                    TabButtons(selectedTab: $selectedTab)
-                        .padding(.horizontal)
-                    
-                    TabbedView(selectedTab: $selectedTab,
-                            recentLinkstitles: recentLinkstitles,
-                            topLinkstitles: topLinkstitles,
-                            recentLinksUrls: recentLinksUrls,
-                            topLinksUrls: topLinksUrls,
-                            recentLinksArray: recentLinksArray,
-                            topLinksArray: topLinksArray)
-                    
-                    ViewAllLinks()
-                        .padding(.horizontal)
-                        
-                    
-                    EnquiryView(type: .Talk)
-                        .padding(.horizontal)
-                        .padding(.top)
-                    
-                    EnquiryView(type: .Questions)
-                        .padding(.horizontal)
-                        .padding(.top)
-                    
-                    
+                    .ignoresSafeArea(edges: .top)
+                    .background(Color("mainColor"))
                 }
-                .ignoresSafeArea(edges: .top)
-                .background(Color("mainColor"))
+                
+                VStack {
+                    Spacer()
+                    CustomTabBar(tab: $tab)
+                }
             }
             .onAppear {
            
