@@ -154,7 +154,11 @@ class JSONHelper {
         }
     }
     
-
+    func convertISO8601StringToDate(_ dateString: String) -> Date? {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]  // Support for fractional seconds
+        return isoFormatter.date(from: dateString)
+    }
     
 
 

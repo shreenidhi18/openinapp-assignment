@@ -29,7 +29,21 @@ struct ContentView: View {
                     Main(greeting: $greeting)
                         .offset(y: -proxy.size.height / 18)
                     
-                 
+                    VStack{
+                        HStack {
+                            Text("Overview")
+                                .foregroundStyle(.gray)
+                                .font(.custom("Figtree-Light", size: 20))
+                            Spacer()
+                        }
+                        AnimatedChart()
+                    }
+                        .padding()
+                        .background(.white,in: .rect(cornerRadius: 24))
+                        .padding(.horizontal)
+                        .offset(y: -proxy.size.height / 18)
+                    
+                    
                     
                     
                 }
@@ -44,15 +58,20 @@ struct ContentView: View {
                         let data = try jsonHelper.extractDataField(from: jsonString)
                         let recentLinks = try jsonHelper.extractRecentLinks(from: data)
                         let topLinks = try jsonHelper.extractTopLinks(from: data)
-                        
                         let recentLinksArr = jsonHelper.decodeLinks(from: recentLinks)
-                        
                         let topLinkArr = jsonHelper.decodeLinks(from: topLinks)
+
+                        if let recentLinksArray = recentLinksArr {
+                            for link in recentLinksArray {
+                                chartData.append(.init(creationDate: jsonHelper.convertISO8601StringToDate(link.createdAt) ?? Date(), totalClicks: link.totalClicks))
+                            }
+                        }
                         
-//                        print(topLinkArr)
+//
                         
-                        print(topLinkArr)
-                        print(recentLinksArr)
+                        for chartDatum in chartData {
+                            print(chartDatum)
+                        }
                         
                         
                        
@@ -60,6 +79,7 @@ struct ContentView: View {
                     }catch {
                         print("Error: \(error.localizedDescription)")
                     }
+
                 }
                 
             }
@@ -89,11 +109,31 @@ struct ContentView: View {
     func AnimatedChart() -> some View {
         Chart {
             ForEach(chartData) { item in
-                BarMark(x: .value("Date", item.creationDate,unit: .day),
-                         y: .value("Total Clicks", item.totalClicks))
+                
+                LineMark(x: .value("Date", item.creationDate,unit: .month),
+                        y: .value("Total Clicks", item.totalClicks))
+                .interpolationMethod(.catmullRom)
+                
+                
+                
+                
+                
             }
+            
+            
+            
         }
-        .frame(height: 250)
+        
+        .frame(height: 200)
+        .chartYScale(domain: 0...250)
+        .chartYAxis {
+            AxisMarks(preset: .extended, position: .leading)
+        }
+        
+        
+        
+        
+        
     }
     
 }

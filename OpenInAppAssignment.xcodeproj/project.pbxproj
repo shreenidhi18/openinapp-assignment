@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0175C5F2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */; };
 		A032C51A2BD2DAB400E3E231 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032C5192BD2DAB400E3E231 /* JSONHelper.swift */; };
 		A032C51D2BD2E9FE00E3E231 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A032C51C2BD2E9FE00E3E231 /* ChartModel.swift */; };
 		A0DBECBD2BB94771006BF40C /* OpenInAppAssignmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBECBC2BB94771006BF40C /* OpenInAppAssignmentApp.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollPicker.swift; sourceTree = "<group>"; };
 		A032C5192BD2DAB400E3E231 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		A032C51C2BD2E9FE00E3E231 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		A0DBECB92BB94771006BF40C /* OpenInAppAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenInAppAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				A0DBECE62BB9492C006BF40C /* Figtree-Light.ttf */,
 				A0DBECC02BB94772006BF40C /* Assets.xcassets */,
 				A0DBECC22BB94772006BF40C /* Preview Content */,
+				A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */,
 			);
 			path = OpenInAppAssignment;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				A0DBECBF2BB94771006BF40C /* ContentView.swift in Sources */,
 				A0DBECEC2BB94DDA006BF40C /* Header.swift in Sources */,
 				A0DBECEE2BB953DB006BF40C /* Main.swift in Sources */,
+				A0175C5F2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift in Sources */,
 				A0DBECBD2BB94771006BF40C /* OpenInAppAssignmentApp.swift in Sources */,
 				A032C51D2BD2E9FE00E3E231 /* ChartModel.swift in Sources */,
 				A032C51A2BD2DAB400E3E231 /* JSONHelper.swift in Sources */,
