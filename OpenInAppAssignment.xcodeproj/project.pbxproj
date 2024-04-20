@@ -27,6 +27,7 @@
 		A0DBECEA2BB949E9006BF40C /* Figtree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0DBECE92BB949E9006BF40C /* Figtree-Bold.ttf */; };
 		A0DBECEC2BB94DDA006BF40C /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBECEB2BB94DDA006BF40C /* Header.swift */; };
 		A0DBECEE2BB953DB006BF40C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DBECED2BB953DB006BF40C /* Main.swift */; };
+		A0E449AF2BD427DB00B49F39 /* LinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E449AE2BD427DB00B49F39 /* LinkModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		A0DBECE92BB949E9006BF40C /* Figtree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Figtree-Bold.ttf"; sourceTree = "<group>"; };
 		A0DBECEB2BB94DDA006BF40C /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		A0DBECED2BB953DB006BF40C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		A0E449AE2BD427DB00B49F39 /* LinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A032C51C2BD2E9FE00E3E231 /* ChartModel.swift */,
+				A0E449AE2BD427DB00B49F39 /* LinkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,21 +134,16 @@
 				A032C5192BD2DAB400E3E231 /* JSONHelper.swift */,
 				A0DBECE82BB94939006BF40C /* Info.plist */,
 				A0DBECBC2BB94771006BF40C /* OpenInAppAssignmentApp.swift */,
-				A0175C602BD3C75E00D37EC0 /* HorizontalScrollPickerCard.swift */,
-				A02C96DA2BD404BA00DF1F51 /* CustomCurve.swift */,
+				A0E449AD2BD427B600B49F39 /* HorizontalScrollPickerComponents */,
+				A0E449AC2BD427A000B49F39 /* TabBarComponents */,
 				A0175C622BD3CC1100D37EC0 /* ViewAnalytics.swift */,
-				A0175C642BD3CCE500D37EC0 /* TabButtons.swift */,
-				A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */,
-				A02C96D42BD3F1D100DF1F51 /* TabbedView.swift */,
+				A0E449AB2BD4278300B49F39 /* LinkViewComponents */,
 				A0DBECED2BB953DB006BF40C /* Main.swift */,
 				A02C96D82BD4005600DF1F51 /* EnquiryView.swift */,
-				A02C96DE2BD405B700DF1F51 /* TabItem.swift */,
-				A02C96DC2BD4051000DF1F51 /* CustomTabBar.swift */,
 				A02C96D62BD3F33600DF1F51 /* LinkCardView.swift */,
 				A0DBECEB2BB94DDA006BF40C /* Header.swift */,
 				A0DBECBE2BB94771006BF40C /* ContentView.swift */,
-				A0DBECE92BB949E9006BF40C /* Figtree-Bold.ttf */,
-				A0DBECE62BB9492C006BF40C /* Figtree-Light.ttf */,
+				A0E449AA2BD4277400B49F39 /* Fonts */,
 				A0DBECC02BB94772006BF40C /* Assets.xcassets */,
 				A0DBECC22BB94772006BF40C /* Preview Content */,
 			);
@@ -158,6 +156,43 @@
 				A0DBECC32BB94772006BF40C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0E449AA2BD4277400B49F39 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A0DBECE92BB949E9006BF40C /* Figtree-Bold.ttf */,
+				A0DBECE62BB9492C006BF40C /* Figtree-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A0E449AB2BD4278300B49F39 /* LinkViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A0175C642BD3CCE500D37EC0 /* TabButtons.swift */,
+				A02C96D42BD3F1D100DF1F51 /* TabbedView.swift */,
+			);
+			path = LinkViewComponents;
+			sourceTree = "<group>";
+		};
+		A0E449AC2BD427A000B49F39 /* TabBarComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A02C96DA2BD404BA00DF1F51 /* CustomCurve.swift */,
+				A02C96DE2BD405B700DF1F51 /* TabItem.swift */,
+				A02C96DC2BD4051000DF1F51 /* CustomTabBar.swift */,
+			);
+			path = TabBarComponents;
+			sourceTree = "<group>";
+		};
+		A0E449AD2BD427B600B49F39 /* HorizontalScrollPickerComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A0175C602BD3C75E00D37EC0 /* HorizontalScrollPickerCard.swift */,
+				A0175C5E2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift */,
+			);
+			path = HorizontalScrollPickerComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +333,7 @@
 				A0DBECBF2BB94771006BF40C /* ContentView.swift in Sources */,
 				A0DBECEC2BB94DDA006BF40C /* Header.swift in Sources */,
 				A0175C632BD3CC1100D37EC0 /* ViewAnalytics.swift in Sources */,
+				A0E449AF2BD427DB00B49F39 /* LinkModel.swift in Sources */,
 				A0DBECEE2BB953DB006BF40C /* Main.swift in Sources */,
 				A0175C5F2BD3C4CA00D37EC0 /* HorizontalScrollPicker.swift in Sources */,
 				A0DBECBD2BB94771006BF40C /* OpenInAppAssignmentApp.swift in Sources */,
